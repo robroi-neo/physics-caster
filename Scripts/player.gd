@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var bullet_path = preload("res://Scenes/fireball.tscn")
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
@@ -11,6 +13,9 @@ var attacking = false
 func _physics_process(delta: float) -> void:
 	# Get input direction before attack check
 	var direction := Input.get_axis("move_left", "move_right")
+	
+	if Input.is_action_just_pressed("fire"):
+		fire()
 
 	# Handle attack (only when not moving and on floor)
 	if Input.is_action_just_pressed("cast_spell") and is_on_floor() and direction == 0:
@@ -72,3 +77,11 @@ func stop_attack():
 	animated_attack.stop()
 	animated_attack.hide()
 	animated_sprite.show()
+
+func fire():
+	var bullet = bullet_path.instantiate()
+	bullet.position = $Node2D.global_position
+	bullet.gravity = 0
+	bullet.angle_deg = 180.0     # set angle manually or by player aim
+	bullet.speed = 10.0
+	get_parent().add_child(bullet)

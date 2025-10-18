@@ -1,2 +1,7 @@
 res://Scripts/player.gd
 res://Scenes/player.tscn
+res://Scenes/game.tscn
+res://Scenes/fireball.tscn
+res://Scenes/platform.tscn
+res://Scenes/fireball.gd
+res://Scripts/fireball.gd

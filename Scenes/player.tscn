@@ -226,8 +226,11 @@ height = 16.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(32, -30)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_8erm5")
 animation = &"falling"
 frame_progress = 0.9369703
