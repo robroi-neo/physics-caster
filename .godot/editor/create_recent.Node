@@ -1,12 +1,13 @@
+TileMapLayer
+SpringBoneCollisionPlane3D
+Node
 CharacterBody2D
 Node2D
-Node
 CollisionShape2D
 AnimatedSprite2D
 AnimationPlayer
 TileMap
 AnimatableBody2D
 Sprite2D
-TileMapLayer
 Camera2D
 StaticBody2D

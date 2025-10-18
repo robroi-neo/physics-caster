@@ -3,7 +3,7 @@ extends CharacterBody2D
 var bullet_path = preload("res://Scenes/fireball.tscn")
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animated_attack = $AnimatedAttack
