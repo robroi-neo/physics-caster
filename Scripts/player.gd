@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			if direction == 0:
 				animated_sprite.play("idle")
 			else:
-				animated_sprite.play("run")
+				animated_sprite.play("run")	
 		else:
 			if velocity.y < 0:
 				animated_sprite.play("rising")
