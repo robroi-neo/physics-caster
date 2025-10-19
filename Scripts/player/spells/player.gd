@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var bullet_path = preload("res://Scenes/fireball.tscn")
+var bullet_path = preload("res://Scenes/spells/fireball.tscn")
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
