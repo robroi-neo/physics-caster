@@ -220,26 +220,27 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
-radius = 4.0
-height = 16.0
+radius = 6.0
+height = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(32, -30)
+[node name="FireballSpawn" type="Node2D" parent="."]
+position = Vector2(14, -22)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -8)
+position = Vector2(2, -12)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_8erm5")
-animation = &"falling"
-frame_progress = 0.9369703
+animation = &"idle"
 
 [node name="AnimatedAttack" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(2, -24)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0gysh")
 animation = &"charge"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(3, -11)
 shape = SubResource("CapsuleShape2D_v0iea")

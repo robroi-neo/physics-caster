@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animated_attack = $AnimatedAttack
-
+@onready var fireball_spawn = $FireballSpawn
 var attacking = false
 
 func _physics_process(delta: float) -> void:
@@ -80,7 +80,7 @@ func stop_attack():
 
 func fire():
 	var bullet = bullet_path.instantiate()
-	bullet.position = $Node2D.global_position
+	bullet.position = fireball_spawn.global_position
 	bullet.gravity = 0
 	bullet.angle_deg = 180.0     # set angle manually or by player aim
 	bullet.speed = 10.0
