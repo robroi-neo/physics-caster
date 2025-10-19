@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://i1wdxdvoaeij"]
 
-[ext_resource type="Script" uid="uid://df5n6xlyfyuih" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://df5n6xlyfyuih" path="res://Scripts/player/spells/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://mgepspj5lu5k" path="res://Assets/Sprites/Player/ALL Spritesheet.png" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dpf5kopldnojc" path="res://Assets/Sprites/Player/AttackRelease/AttackWood1.png" id="2_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://c8k21e5ibin76" path="res://Assets/Sprites/Player/AttackRelease/AttackWood2.png" id="3_h4iuc"]
@@ -233,7 +233,7 @@ position = Vector2(14, -22)
 position = Vector2(2, -12)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_8erm5")
-animation = &"idle"
+animation = &"run"
 
 [node name="AnimatedAttack" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -24)
