@@ -4,7 +4,6 @@ var bullet_path = preload("res://Scenes/spells/fireball.tscn")
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
-
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animated_attack = $AnimatedAttack
 @onready var fireball_spawn = $FireballSpawn
@@ -16,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("fire"):
 		fire()
-
+		print(Globals.playerName)
 	# Handle attack (only when not moving and on floor)
 	if Input.is_action_just_pressed("cast_spell") and is_on_floor() and direction == 0:
 		await get_tree().create_timer(0.1).timeout

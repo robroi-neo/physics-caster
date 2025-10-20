@@ -1,3 +1,8 @@
-res://Scenes/player/player.tscn
-res://Scripts/player/spells/player.gd
 res://Scenes/game.tscn
+res://Scripts/globals.gd
+res://Scripts/player/player.gd
+res://Scenes/player/player.tscn
+res://Scripts/world/game.gd
+res://Scripts/world/readyLabel.gd
+res://Scenes/spells/fireball.tscn
+res://Scenes/world/readyLabel.tscn
