@@ -7,8 +7,10 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animated_attack = $AnimatedAttack
 @onready var fireball_spawn = $FireballSpawn
+
 var attacking = false
 var justFired =false
+
 func _physics_process(delta: float) -> void:
 	# Get input direction before attack check
 	
@@ -43,9 +45,11 @@ func _physics_process(delta: float) -> void:
 		if direction > 0:
 			animated_sprite.flip_h = false
 			animated_attack.flip_h = false
+			fireball_spawn.position.x = abs(fireball_spawn.position.x)
 		elif direction < 0:
 			animated_sprite.flip_h = true
 			animated_attack.flip_h = true
+			fireball_spawn.position.x = -abs(fireball_spawn.position.x) # flip fireball spawn location
 
 		# Animation control (only when not attacking)
 		if is_on_floor():
@@ -72,7 +76,6 @@ func _physics_process(delta: float) -> void:
 			justFired = true
 			fire()
 		Globals.gameState = Globals.GAMESTATE.READY
-		
 
 func start_attack():
 	animated_sprite.hide()
@@ -88,10 +91,15 @@ func release_attack():
 	animated_sprite.hide()
 	animated_attack.show()
 	animated_attack.play("release")
+	
 func fire():
 	var bullet = bullet_path.instantiate()
 	bullet.position = fireball_spawn.global_position
-	bullet.gravity = 0
-	bullet.angle_deg = Globals.rotation     # set angle manually or by player aim
+	
+	if animated_sprite.flip_h:
+		bullet.angle_deg = Globals.rotation + 180
+	else:
+		bullet.angle_deg = Globals.rotation    
 	bullet.speed = Globals.speed
+	bullet.gravity = 0
 	get_parent().add_child(bullet)
