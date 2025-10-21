@@ -1,20 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://c32i6d82udlr7"]
 
-[ext_resource type="Texture2D" uid="uid://cu11xl2snoghu" path="res://Assets/Sprites/Tilesets/TX Village Props.png" id="1_1rc8e"]
+[ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Sprites/Tilesets/MagicCliffsGodot/tileset.png" id="1_praae"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rc8e"]
-size = Vector2(40, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4o3h"]
+size = Vector2(45, 13)
 
 [node name="Platform" type="AnimatableBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -4)
-texture = ExtResource("1_1rc8e")
-region_enabled = true
-region_rect = Rect2(28, 416, 40, 7)
+z_index = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_1rc8e")
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_k4o3h")
 one_way_collision = true
 one_way_collision_margin = 7.2
+
+[node name="Tileset" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+texture = ExtResource("1_praae")
+region_enabled = true
+region_rect = Rect2(601, 56, 48, 32)
