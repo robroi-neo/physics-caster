@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d0as0obeqmdyb"]
+[gd_scene load_steps=23 format=4 uid="uid://d0as0obeqmdyb"]
 
 [ext_resource type="Script" uid="uid://64i75dkvcydf" path="res://Scripts/world/arena.gd" id="1_g2joa"]
 [ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Sprites/Tilesets/MagicCliffsGodot/tileset.png" id="2_cs8mb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bubiokecv02fh" path="res://Assets/Sprites/Tilesets/MagicCliffsGodot/clouds.png" id="5_iyva0"]
 [ext_resource type="Texture2D" uid="uid://d0imarthe77sx" path="res://Assets/Sprites/Tilesets/MagicCliffsGodot/far-grounds.png" id="6_2cush"]
 [ext_resource type="PackedScene" uid="uid://i1wdxdvoaeij" path="res://Scenes/player/player.tscn" id="7_5pgm5"]
+[ext_resource type="PackedScene" uid="uid://bijs61iaofwye" path="res://Scenes/world/killzone.tscn" id="8_lgt66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_cs8mb")
@@ -3291,6 +3292,8 @@ texture = ExtResource("4_stc3i")
 [sub_resource type="TileSet" id="TileSet_h4fw4"]
 sources/0 = SubResource("TileSetAtlasSource_v158k")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cs8mb"]
+
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_g2joa")
 
@@ -3341,3 +3344,9 @@ limit_left = -669
 limit_top = -400
 limit_right = 645
 limit_bottom = 105
+
+[node name="Killzone" parent="." instance=ExtResource("8_lgt66")]
+position = Vector2(0, 145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_cs8mb")
