@@ -1,8 +1,8 @@
 res://Scenes/game.tscn
-res://Scripts/globals.gd
-res://Scripts/player/player.gd
+res://Scripts/world/setup_inputs.gd
+res://Scenes/world/setupInputs.tscn
 res://Scenes/player/player.tscn
-res://Scripts/world/game.gd
-res://Scripts/world/readyLabel.gd
-res://Scenes/spells/fireball.tscn
+res://Scripts/player/player.gd
 res://Scenes/world/readyLabel.tscn
+res://Scripts/world/game.gd
+res://Scripts/globals.gd

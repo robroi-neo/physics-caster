@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_fs7ks")
 }],
-"loop": true,
+"loop": false,
 "name": &"release",
 "speed": 8.0
 }]
@@ -236,10 +236,12 @@ sprite_frames = SubResource("SpriteFrames_8erm5")
 animation = &"run"
 
 [node name="AnimatedAttack" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(2, -24)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0gysh")
-animation = &"charge"
+animation = &"release"
+frame_progress = 0.71411335
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -11)

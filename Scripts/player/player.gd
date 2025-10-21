@@ -11,25 +11,20 @@ var attacking = false
 
 func _physics_process(delta: float) -> void:
 	# Get input direction before attack check
-	var direction := Input.get_axis("move_left", "move_right")
 	
-	if Input.is_action_just_pressed("fire"):
-		fire()
-		print(Globals.playerName)
-	# Handle attack (only when not moving and on floor)
-	if Input.is_action_just_pressed("cast_spell") and is_on_floor() and direction == 0:
-		await get_tree().create_timer(0.1).timeout
-		attacking = !attacking
-
-	if attacking:
-		start_attack()
-	else:
-		stop_attack()
-
-	# Disable movement while attacking
-	if attacking:
-		velocity.x = 0
-	else:
+	if Globals.gameState == Globals.GAMESTATE.READY:
+		
+		var direction := Input.get_axis("move_left", "move_right")
+		
+		if Input.is_action_just_pressed("fire"):
+			fire()
+			print(Globals.playerName)
+		# Handle attack (only when not moving and on floor)
+		if Input.is_action_just_pressed("cast_spell") and is_on_floor():
+			await get_tree().create_timer(0.1).timeout
+			Globals.gameState = Globals.GAMESTATE.SETUP
+		# Disable movement while attacking
+	
 		# Apply gravity
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -44,16 +39,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Flip sprites
-	if direction > 0 and not attacking:
-		animated_sprite.flip_h = false
-		animated_attack.flip_h = false
-	elif direction < 0 and not attacking:
-		animated_sprite.flip_h = true
-		animated_attack.flip_h = true
+		# Flip sprites
+		if direction > 0:
+			animated_sprite.flip_h = false
+			animated_attack.flip_h = false
+		elif direction < 0:
+			animated_sprite.flip_h = true
+			animated_attack.flip_h = true
 
-	# Animation control (only when not attacking)
-	if not attacking:
+		# Animation control (only when not attacking)
 		if is_on_floor():
 			if direction == 0:
 				animated_sprite.play("idle")
@@ -65,7 +59,15 @@ func _physics_process(delta: float) -> void:
 			elif velocity.y > 0:
 				animated_sprite.play("falling")
 
-	move_and_slide()
+		move_and_slide()
+		
+	elif Globals.gameState == Globals.GAMESTATE.SETUP:
+		start_attack()
+	elif Globals.gameState == Globals.GAMESTATE.FIRE:
+		release_attack()
+		await get_tree().create_timer(0.7).timeout
+		stop_attack()
+		Globals.gameState = Globals.GAMESTATE.READY
 
 func start_attack():
 	animated_sprite.hide()
@@ -77,6 +79,10 @@ func stop_attack():
 	animated_attack.hide()
 	animated_sprite.show()
 
+func release_attack():
+	animated_sprite.hide()
+	animated_attack.show()
+	animated_attack.play("release")
 func fire():
 	var bullet = bullet_path.instantiate()
 	bullet.position = fireball_spawn.global_position

@@ -1,15 +1,14 @@
+Node2D
+LineEdit
+LineEdit      - Matches the "input" keyword.
+RichTextLabel
 ColorRect
 Control
 TileMapLayer
 SpringBoneCollisionPlane3D
 Node
 CharacterBody2D
-Node2D
 CollisionShape2D
 AnimatedSprite2D
 AnimationPlayer
 TileMap
-AnimatableBody2D
-Sprite2D
-Camera2D
-StaticBody2D
