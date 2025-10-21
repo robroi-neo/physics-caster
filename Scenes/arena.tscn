@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://i1wdxdvoaeij" path="res://Scenes/player/player.tscn" id="7_5pgm5"]
 [ext_resource type="PackedScene" uid="uid://bijs61iaofwye" path="res://Scenes/world/killzone.tscn" id="8_lgt66"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xrytr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_cs8mb")
 0:0/0 = 0
 0:1/0 = 0
@@ -322,10 +322,10 @@ texture = ExtResource("2_cs8mb")
 5:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3dryh"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_xrytr")
+physics_layer_0/collision_layer = 5
+sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stc3i"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
 texture = ExtResource("2_cs8mb")
 0:0/0 = 0
 0:1/0 = 0
@@ -966,10 +966,10 @@ texture = ExtResource("2_cs8mb")
 0:19/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1l0tm"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_stc3i")
+physics_layer_0/collision_layer = 5
+sources/0 = SubResource("TileSetAtlasSource_i6g32")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyva0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfjv2"]
 texture = ExtResource("3_xrytr")
 0:0/0 = 0
 1:0/0 = 0
@@ -1105,7 +1105,7 @@ texture = ExtResource("3_xrytr")
 5:18/0 = 0
 6:18/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cush"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1phco"]
 texture = ExtResource("4_stc3i")
 0:0/0 = 0
 1:0/0 = 0
@@ -1151,10 +1151,10 @@ texture = ExtResource("4_stc3i")
 6:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nb51f"]
-sources/3 = SubResource("TileSetAtlasSource_iyva0")
-sources/5 = SubResource("TileSetAtlasSource_2cush")
+sources/3 = SubResource("TileSetAtlasSource_rfjv2")
+sources/5 = SubResource("TileSetAtlasSource_1phco")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pgm5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l0tm"]
 texture = ExtResource("5_iyva0")
 texture_region_size = Vector2i(8, 8)
 14:2/0 = 0
@@ -2834,9 +2834,9 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_v158k"]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_5pgm5")
+sources/0 = SubResource("TileSetAtlasSource_1l0tm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bx68w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("6_2cush")
 texture_region_size = Vector2i(8, 8)
 29:4/0 = 0
@@ -3243,9 +3243,9 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ldgsr"]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_bx68w")
+sources/0 = SubResource("TileSetAtlasSource_h4fw4")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgt66"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v158k"]
 texture = ExtResource("4_stc3i")
 0:0/0 = 0
 1:0/0 = 0
@@ -3291,7 +3291,7 @@ texture = ExtResource("4_stc3i")
 6:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h4fw4"]
-sources/0 = SubResource("TileSetAtlasSource_lgt66")
+sources/0 = SubResource("TileSetAtlasSource_v158k")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cs8mb"]
 
@@ -3300,14 +3300,14 @@ script = ExtResource("1_g2joa")
 
 [node name="Tilemaps" type="Node" parent="."]
 
-[node name="Bridges" type="TileMapLayer" parent="Tilemaps"]
+[node name="Bridges" type="TileMapLayer" parent="Tilemaps" groups=["ground"]]
 z_index = 5
 position = Vector2(-106.99999, 3)
 scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAEAP//AAAsAAsAAAAEAAAAAAAsAAwAAAAEAAEAAAAsAA0AAAAFAP//AAAtAAsAAAAFAAAAAAAtAAwAAAAFAAEAAAAtAA0AAAD6////AAAmAAsAAAD6/wAAAAAmAAwAAAD6/wEAAAAmAA0AAAD7////AAAoAAsAAAD7/wAAAAAoAAwAAAD7/wEAAAAoAA0AAAD8////AAApAAsAAAD8/wAAAAApAAwAAAD8/wEAAAApAA0AAAD9////AAAoAAsAAAD9/wAAAAAoAAwAAAD9/wEAAAAoAA0AAAD+////AAApAAsAAAD+/wAAAAApAAwAAAD+/wEAAAApAA0AAAD/////AAAoAAsAAAD//wAAAAAoAAwAAAD//wEAAAAoAA0AAAAAAP//AAApAAsAAAAAAAAAAAApAAwAAAAAAAEAAAApAA0AAAABAP//AAAoAAsAAAABAAAAAAAoAAwAAAABAAEAAAAoAA0AAAACAP//AAApAAsAAAACAAAAAAApAAwAAAACAAEAAAArAA0AAAADAP//AAArAAsAAAADAAAAAAArAAwAAAADAAEAAAArAA0AAAAMAAAAAAAkAAwAAAAMAAEAAAAkAA0AAAANAP//AAAlAAsAAAANAAAAAAAlAAwAAAANAAEAAAAlAA0AAAAOAP//AAAmAAsAAAAOAAAAAAAmAAwAAAAOAAEAAAAmAA0AAAAPAP//AAAoAAsAAAAPAAAAAAAoAAwAAAAPAAEAAAAoAA0AAAAQAP//AAApAAsAAAAQAAAAAAApAAwAAAAQAAEAAAApAA0AAAARAP//AAAoAAsAAAARAAAAAAAoAAwAAAARAAEAAAAoAA0AAAASAP//AAApAAsAAAASAAAAAAApAAwAAAASAAEAAAApAA0AAAATAP//AAAoAAsAAAATAAAAAAAoAAwAAAATAAEAAAAoAA0AAAAUAP//AAApAAsAAAAUAAAAAAApAAwAAAAUAAEAAAApAA0AAAAVAP//AAAoAAsAAAAVAAAAAAAoAAwAAAAVAAEAAAAoAA0AAAAWAP//AAApAAsAAAAWAAAAAAApAAwAAAAWAAEAAAArAA0AAAAXAP//AAArAAsAAAAXAAAAAAArAAwAAAAXAAEAAAArAA0AAAAKAP7/AAAQAAIAAAAKAP//AAAQAAMAAAALAP7/AAARAAIAAAALAP//AAARAAMAAAAMAP//AAASAAMAAADl/wAAAAAkAAwAAADl/wEAAAAkAA0AAADm////AAAlAAsAAADm/wAAAAAlAAwAAADm/wEAAAAlAA0AAADw////AAArAAsAAADw/wAAAAArAAwAAADw/wEAAAArAA0AAADx////AAAoAAsAAADx/wAAAAAoAAwAAADx/wEAAAAoAA0AAADy////AAApAAsAAADy/wAAAAApAAwAAADy/wEAAAApAA0AAADz////AAAoAAsAAADz/wAAAAAoAAwAAADz/wEAAAAoAA0AAAD0////AAApAAsAAAD0/wAAAAApAAwAAAD0/wEAAAApAA0AAAD1////AAAoAAsAAAD1/wAAAAAoAAwAAAD1/wEAAAAoAA0AAAD2////AAApAAsAAAD2/wAAAAApAAwAAAD2/wEAAAApAA0AAAD3////AAAoAAsAAAD3/wAAAAAoAAwAAAD3/wEAAAAoAA0AAAD4////AAApAAsAAAD4/wAAAAApAAwAAAD4/wEAAAArAA0AAAD5////AAArAAsAAAD5/wAAAAArAAwAAAD5/wEAAAArAA0AAADn////AAAmAAsAAADn/wAAAAAmAAwAAADn/wEAAAAmAA0AAADo////AAAoAAsAAADo/wAAAAAoAAwAAADo/wEAAAAoAA0AAADp////AAApAAsAAADp/wAAAAApAAwAAADp/wEAAAApAA0AAADq////AAAoAAsAAADq/wAAAAAoAAwAAADq/wEAAAAoAA0AAADr////AAApAAsAAADr/wAAAAApAAwAAADr/wEAAAApAA0AAADs////AAAoAAsAAADs/wAAAAAoAAwAAADs/wEAAAAoAA0AAADt////AAApAAsAAADt/wAAAAApAAwAAADt/wEAAAApAA0AAADu////AAAoAAsAAADu/wAAAAAoAAwAAADu/wEAAAAoAA0AAADv////AAApAAsAAADv/wAAAAApAAwAAADv/wEAAAArAA0AAAAYAP//AAAmAAsAAAAYAAAAAAAmAAwAAAAYAAEAAAAmAA0AAAAZAP//AAAoAAsAAAAZAAAAAAAoAAwAAAAZAAEAAAAoAA0AAAAaAP//AAApAAsAAAAaAAAAAAApAAwAAAAaAAEAAAApAA0AAAAbAP//AAAoAAsAAAAbAAAAAAAoAAwAAAAbAAEAAAAoAA0AAAAcAP//AAApAAsAAAAcAAAAAAApAAwAAAAcAAEAAAApAA0AAAAdAP//AAAoAAsAAAAdAAAAAAAoAAwAAAAdAAEAAAAoAA0AAAAeAP//AAApAAsAAAAeAAAAAAApAAwAAAAeAAEAAAApAA0AAAAfAP//AAAoAAsAAAAfAAAAAAAoAAwAAAAfAAEAAAAoAA0AAAAgAP//AAApAAsAAAAgAAAAAAApAAwAAAAgAAEAAAArAA0AAAAhAP//AAArAAsAAAAhAAAAAAArAAwAAAAhAAEAAAArAA0AAAAiAP//AAAmAAsAAAAiAAAAAAAmAAwAAAAiAAEAAAAmAA0AAAAjAP//AAAoAAsAAAAjAAAAAAAoAAwAAAAjAAEAAAAoAA0AAAAkAP//AAApAAsAAAAkAAAAAAApAAwAAAAkAAEAAAApAA0AAAAlAP//AAAoAAsAAAAlAAAAAAAoAAwAAAAlAAEAAAAoAA0AAAAmAP//AAApAAsAAAAmAAAAAAApAAwAAAAmAAEAAAApAA0AAAAnAP//AAAoAAsAAAAnAAAAAAAoAAwAAAAnAAEAAAAoAA0AAAAoAP//AAApAAsAAAAoAAAAAAApAAwAAAAoAAEAAAApAA0AAAApAP//AAAoAAsAAAApAAAAAAAoAAwAAAApAAEAAAAoAA0AAAAqAP//AAApAAsAAAAqAAAAAAApAAwAAAAqAAEAAAArAA0AAAArAP//AAArAAsAAAArAAAAAAArAAwAAAArAAEAAAArAA0AAAA=")
 tile_set = SubResource("TileSet_3dryh")
 
-[node name="Ground" type="TileMapLayer" parent="Tilemaps"]
+[node name="Ground" type="TileMapLayer" parent="Tilemaps" groups=["ground"]]
 z_index = 20
 position = Vector2(-106.99999, 0)
 scale = Vector2(0.8, 0.8)
@@ -3349,13 +3349,6 @@ limit_bottom = 105
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
-
-[node name="Platform3" parent="." instance=ExtResource("1_cs8mb")]
-position = Vector2(377, -59)
-
-[node name="Platform2" parent="." instance=ExtResource("1_cs8mb")]
-position = Vector2(-125, -134)
-rotation = -0.09138885
 
 [node name="Platform" parent="." instance=ExtResource("1_cs8mb")]
 position = Vector2(-502, -75)

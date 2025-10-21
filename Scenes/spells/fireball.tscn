@@ -745,6 +745,7 @@ animations = [{
 
 [node name="Fireball" type="CharacterBody2D"]
 z_index = 15
+collision_mask = 5
 script = ExtResource("1_jfuwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

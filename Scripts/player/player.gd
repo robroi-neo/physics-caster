@@ -7,14 +7,25 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animated_attack = $AnimatedAttack
 @onready var fireball_spawn = $FireballSpawn
-
+@onready var camera = $Camera2D
 var attacking = false
 var justFired =false
+var bullet = null
+var saved_camera_pos = null
 
 func _physics_process(delta: float) -> void:
 	# Get input direction before attack check
-	
+
 	if Globals.gameState == Globals.GAMESTATE.READY:
+	
+		if camera.get_parent() != self:
+			camera.reparent(self)
+			camera.global_position = saved_camera_pos
+		else:
+			saved_camera_pos = camera.global_position
+		
+		if bullet:
+			bullet.free()
 
 		var direction := Input.get_axis("move_left", "move_right")
 		
@@ -75,7 +86,11 @@ func _physics_process(delta: float) -> void:
 		if not justFired:
 			justFired = true
 			fire()
-		Globals.gameState = Globals.GAMESTATE.READY
+		Globals.gameState = Globals.GAMESTATE.RELEASE
+
+	elif Globals.gameState == Globals.GAMESTATE.RELEASE:
+		camera.reparent(bullet)
+		
 
 func start_attack():
 	animated_sprite.hide()
@@ -93,7 +108,7 @@ func release_attack():
 	animated_attack.play("release")
 	
 func fire():
-	var bullet = bullet_path.instantiate()
+	bullet = bullet_path.instantiate()
 	bullet.position = fireball_spawn.global_position
 	
 	var angle = Globals.rotation
