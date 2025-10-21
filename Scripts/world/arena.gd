@@ -3,7 +3,7 @@ extends Node
 @onready var readyLabelPath = preload("res://Scenes/world/readyLabel.tscn");
 @onready var setupInputsPath = preload("res://Scenes/world/setupInputs.tscn");
 
-@onready var player1 = $"Level 1/Player";
+@onready var player1 = $"Player";
 var label: Control
 var setupInputs:Node
 
