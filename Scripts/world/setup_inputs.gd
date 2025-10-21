@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 		print(rotationLineEdit.is_editing())
 	elif Input.is_action_just_pressed("cast_spell") and speedLineEdit.has_focus():
 		print("yessir")
+		Globals.rotation = int(rotationLineEdit.text)
+		Globals.speed = int(speedLineEdit.text)
+
 		Globals.gameState = Globals.GAMESTATE.FIRE
 	
 		

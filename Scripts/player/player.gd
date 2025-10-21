@@ -8,12 +8,12 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_attack = $AnimatedAttack
 @onready var fireball_spawn = $FireballSpawn
 var attacking = false
-
+var justFired =false
 func _physics_process(delta: float) -> void:
 	# Get input direction before attack check
 	
 	if Globals.gameState == Globals.GAMESTATE.READY:
-		
+
 		var direction := Input.get_axis("move_left", "move_right")
 		
 		if Input.is_action_just_pressed("fire"):
@@ -62,12 +62,17 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 	elif Globals.gameState == Globals.GAMESTATE.SETUP:
+		justFired=false
 		start_attack()
 	elif Globals.gameState == Globals.GAMESTATE.FIRE:
 		release_attack()
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.4).timeout
 		stop_attack()
+		if not justFired:
+			justFired = true
+			fire()
 		Globals.gameState = Globals.GAMESTATE.READY
+		
 
 func start_attack():
 	animated_sprite.hide()
@@ -87,6 +92,6 @@ func fire():
 	var bullet = bullet_path.instantiate()
 	bullet.position = fireball_spawn.global_position
 	bullet.gravity = 0
-	bullet.angle_deg = 180.0     # set angle manually or by player aim
-	bullet.speed = 10.0
+	bullet.angle_deg = Globals.rotation     # set angle manually or by player aim
+	bullet.speed = Globals.speed
 	get_parent().add_child(bullet)

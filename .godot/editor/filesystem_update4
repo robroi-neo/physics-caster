@@ -5,3 +5,5 @@ res://Scenes/player/player.tscn
 res://Scenes/game.tscn
 res://Scripts/world/game.gd
 res://Scenes/arena.tscn
+res://Scripts/globals.gd
+res://Scripts/world/setup_inputs.gd
