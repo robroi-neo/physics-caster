@@ -3341,16 +3341,20 @@ position = Vector2(-506, -93)
 position = Vector2(0, -13)
 offset = Vector2(0, -65.485)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
 limit_left = -669
 limit_top = -400
 limit_right = 645
 limit_bottom = 105
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Platform" parent="." instance=ExtResource("1_cs8mb")]
+position = Vector2(-502, -75)
 
 [node name="Killzone" parent="." instance=ExtResource("8_lgt66")]
 position = Vector2(0, 145)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_cs8mb")
-
-[node name="Platform" parent="Killzone" instance=ExtResource("1_cs8mb")]
-position = Vector2(-501, -219)
