@@ -96,10 +96,18 @@ func fire():
 	var bullet = bullet_path.instantiate()
 	bullet.position = fireball_spawn.global_position
 	
+	var angle = Globals.rotation
+
+	# Flip angle if player is facing left
 	if animated_sprite.flip_h:
-		bullet.angle_deg = Globals.rotation + 180
-	else:
-		bullet.angle_deg = Globals.rotation    
+		angle = 180 - angle
+	# Normalize angle to [0, 360)
+	angle = fposmod(angle, 360)
+
+	bullet.angle_deg = angle
+	print("Final angle:", bullet.angle_deg)
+  
+		
 	bullet.speed = Globals.speed
-	bullet.gravity = 0
+	bullet.gravity = 100
 	get_parent().add_child(bullet)
