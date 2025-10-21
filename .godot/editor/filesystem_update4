@@ -1,9 +1,3 @@
-res://Scenes/spells/fireball.tscn
-res://Scripts/player/player.gd
-res://Scripts/player/spells/fireball.gd
-res://Scenes/player/player.tscn
-res://Scenes/game.tscn
-res://Scripts/world/game.gd
 res://Scenes/arena.tscn
-res://Scripts/globals.gd
-res://Scripts/world/setup_inputs.gd
+res://Scenes/world/killzone.tscn
+res://Scenes/world/platform.tscn

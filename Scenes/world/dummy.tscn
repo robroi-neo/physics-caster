@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cun6oi7g82anv"]
+
+[ext_resource type="Texture2D" uid="uid://cu11xl2snoghu" path="res://Assets/Sprites/Tilesets/TX Village Props.png" id="1_x66xh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d6mj"]
+radius = 4.0
+height = 28.0
+
+[node name="Dummy" type="CharacterBody2D"]
+z_index = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.6940659e-21, -18)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("1_x66xh")
+offset = Vector2(-1.7826233, 6.3913116)
+region_enabled = true
+region_rect = Rect2(703, 229, 65, 89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_5d6mj")
