@@ -3338,14 +3338,14 @@ z_index = 15
 position = Vector2(-506, -93)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -13)
+position = Vector2(-6, -11)
 offset = Vector2(0, -65.485)
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
-limit_left = -669
-limit_top = -400
-limit_right = 645
-limit_bottom = 105
+limit_left = -800
+limit_top = -450
+limit_right = 800
+limit_bottom = 150
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
