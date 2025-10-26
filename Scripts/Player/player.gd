@@ -67,8 +67,14 @@ func handle_input() -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
-	
 	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction > 0:
+			fireball_spawn.position.x = abs(fireball_spawn.position.x)
+			facing_left = false
+	elif direction < 0:
+			facing_left = true
+			fireball_spawn.position.x = -abs(fireball_spawn.position.x) 
+			
 	if direction == 0:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 	else:
