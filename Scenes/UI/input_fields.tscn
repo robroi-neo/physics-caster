@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4rai3k6g8rg"]
+
+[ext_resource type="Script" uid="uid://df3cl5awb3qdf" path="res://Scripts/UI/input_fields.gd" id="1_d3upc"]
+
+[node name="InputFields" type="Node2D"]
+script = ExtResource("1_d3upc")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 114.0
+offset_bottom = 58.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Label"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="expire_time" type="Timer" parent="."]
+
+[connection signal="text_changed" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

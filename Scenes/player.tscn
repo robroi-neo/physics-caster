@@ -1,0 +1,220 @@
+[gd_scene load_steps=41 format=3 uid="uid://dc3v1e3p1aux8"]
+
+[ext_resource type="Texture2D" uid="uid://bnna6na4ag3ag" path="res://Assets/Player/Falling/Falling1.png" id="1_2ijsl"]
+[ext_resource type="Script" uid="uid://dfp0i6kt1v81j" path="res://Scripts/Player/player.gd" id="1_11gg7"]
+[ext_resource type="Texture2D" uid="uid://b1uf5um0aadii" path="res://Assets/Player/Idle/Idle1.png" id="1_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://djsjtpalhr1lj" path="res://Assets/Player/Idle/Idle2.png" id="2_3smsa"]
+[ext_resource type="Texture2D" uid="uid://sutnfgft4amo" path="res://Assets/Player/Falling/Falling2.png" id="2_p1odr"]
+[ext_resource type="Texture2D" uid="uid://73ttkuqbca7m" path="res://Assets/Player/Falling/Falling3.png" id="3_0gysh"]
+[ext_resource type="Texture2D" uid="uid://c3ny5qtwrq7un" path="res://Assets/Player/Idle/Idle3.png" id="3_8erm5"]
+[ext_resource type="Texture2D" uid="uid://58yi3lboatce" path="res://Assets/Player/Idle/Idle4.png" id="4_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://dby75hie3ogfu" path="res://Assets/Player/Falling/Falling4.png" id="4_vfarp"]
+[ext_resource type="Texture2D" uid="uid://cynae1efbpmn4" path="res://Assets/Player/Idle/Idle5.png" id="5_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://unibt3gimk23" path="res://Assets/Player/Falling/Falling5.png" id="5_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://cx1v0k6gkxt2e" path="res://Assets/Player/Falling/Falling6.png" id="6_83xs0"]
+[ext_resource type="Texture2D" uid="uid://rmllq8hegpkg" path="res://Assets/Player/Idle/Idle6.png" id="6_gymyn"]
+[ext_resource type="Texture2D" uid="uid://di3ac23ckychd" path="res://Assets/Player/Rising/Rising1.png" id="13_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://ny8eyhh6kl6a" path="res://Assets/Player/Rising/Rising2.png" id="14_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://j38vcdo42cbs" path="res://Assets/Player/Rising/Rising3.png" id="15_wohnl"]
+[ext_resource type="Texture2D" uid="uid://bn3rgm5jfocrh" path="res://Assets/Player/Rising/Rising4.png" id="16_36dho"]
+[ext_resource type="Texture2D" uid="uid://bpehqa8ph7haj" path="res://Assets/Player/Rising/Rising5.png" id="17_yh6i2"]
+[ext_resource type="Texture2D" uid="uid://2h6m70yd2nrm" path="res://Assets/Player/Rising/Rising6.png" id="18_nv4vc"]
+[ext_resource type="Texture2D" uid="uid://cy0agkbwobu2e" path="res://Assets/Player/Run/Run1.png" id="19_8gxox"]
+[ext_resource type="Texture2D" uid="uid://8paafqee4dif" path="res://Assets/Player/Run/Run2.png" id="20_11gg7"]
+[ext_resource type="Texture2D" uid="uid://c10hfd4o41rtn" path="res://Assets/Player/Run/Run3.png" id="21_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://6bdrbw82nm5p" path="res://Assets/Player/Run/Run4.png" id="22_sbwqj"]
+[ext_resource type="Texture2D" uid="uid://j8e7tgelchqd" path="res://Assets/Player/Run/Run5.png" id="23_xwi16"]
+[ext_resource type="Texture2D" uid="uid://devvrj7c7i03o" path="res://Assets/Player/Run/Run6.png" id="24_sweqm"]
+[ext_resource type="Texture2D" uid="uid://k40hitpp6pw1" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood1.png" id="25_8gxox"]
+[ext_resource type="Texture2D" uid="uid://c5b5d7yxg2o8q" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood2.png" id="26_11gg7"]
+[ext_resource type="Texture2D" uid="uid://dxg7ncbp3mdwq" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood3.png" id="27_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://uglcq0g5qldh" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood4.png" id="28_sbwqj"]
+[ext_resource type="Texture2D" uid="uid://bltcmxbiu0k42" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood5.png" id="29_xwi16"]
+[ext_resource type="Texture2D" uid="uid://bish1xbkap84x" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood6.png" id="30_sweqm"]
+[ext_resource type="Texture2D" uid="uid://dpf5kopldnojc" path="res://Assets/Player/AttackRelease/AttackWood1.png" id="31_ph33w"]
+[ext_resource type="Texture2D" uid="uid://c8k21e5ibin76" path="res://Assets/Player/AttackRelease/AttackWood2.png" id="32_7ldla"]
+[ext_resource type="Texture2D" uid="uid://btonf8ed2g4x6" path="res://Assets/Player/AttackRelease/AttackWood3.png" id="33_r7t2e"]
+[ext_resource type="Texture2D" uid="uid://bj18vrvrvntbd" path="res://Assets/Player/AttackRelease/AttackWood4.png" id="34_nmr2m"]
+[ext_resource type="Texture2D" uid="uid://cl28dmc1mbsk5" path="res://Assets/Player/AttackRelease/AttackWood5.png" id="35_ax3m3"]
+[ext_resource type="Texture2D" uid="uid://cp2ri15tq724s" path="res://Assets/Player/AttackRelease/AttackWood6.png" id="36_3vlem"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu2lt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2ijsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p1odr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0gysh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vfarp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y6uwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_83xs0")
+}],
+"loop": false,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x3wgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3smsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8erm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f1ek2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tx1dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gymyn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ypfnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xuaoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wohnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_36dho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yh6i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nv4vc")
+}],
+"loop": false,
+"name": &"rising",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_8gxox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_11gg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qpa8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sbwqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xwi16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_sweqm")
+}],
+"loop": false,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_8gxox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_11gg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_qpa8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_sbwqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xwi16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_sweqm")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_ph33w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_7ldla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_r7t2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_nmr2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_ax3m3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3vlem")
+}],
+"loop": false,
+"name": &"release",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_11gg7")
+
+[node name="MovementAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_pu2lt")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AttackAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_8eeqe")
+animation = &"release"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("CapsuleShape2D_2ijsl")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(16, -19)
+
+[node name="CayoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CastExpireTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
