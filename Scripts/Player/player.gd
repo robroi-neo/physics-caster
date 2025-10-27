@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var jump_buffer_timer = $JumpBufferTimer
 @onready var cayote_timer = $CayoteTimer
 @onready var cast_expire_timer = $CastExpireTimer
+@onready var release_buffer_timer = $ReleaseBufferTImer
+
 @onready var angle_input = $"../AngleInput"
 @onready var speed_input = $"../SpeedInput"
 
@@ -29,6 +31,8 @@ var facing_left: bool = false
 var fireball_angle: float 
 var fireball_speed: float
 
+var is_release_played: bool = false
+
 func _ready():
 	cast_expire_timer.timeout.connect(_on_cast_expire_timeout)
 	angle_input.input_submitted.connect(_on_angle_submitted)
@@ -44,7 +48,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() 
 
 func handle_input() -> void:
-	# dprint(current_state	
 	if Input.is_action_just_pressed("attack")  and current_state not in [PlayerState.RELEASE, PlayerState.JUMP]:
 		if current_state == PlayerState.CAST:
 			# cancel cast
@@ -54,7 +57,11 @@ func handle_input() -> void:
 			speed_input.enable(false)
 			
 			cast_stage = CastStage.STOP
-			current_state = PlayerState.IDLE		
+			if not is_on_floor() and velocity.y > 0:
+				print("me falling")
+				current_state = PlayerState.DOWN
+			else:
+				current_state = PlayerState.IDLE		
 			print("Cast canceled")	
 			return
 		current_state = PlayerState.CAST
@@ -67,6 +74,7 @@ func handle_input() -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
+		
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0 && velocity.x == 0:
 			fireball_spawn.position.x = abs(fireball_spawn.position.x)
@@ -114,7 +122,24 @@ func update_animation() -> void:
 		PlayerState.JUMP: movement_sprite.play("rising")
 		PlayerState.DOWN: movement_sprite.play("falling")
 		PlayerState.CAST: attack_sprite.play("charge")
-		PlayerState.RELEASE: attack_sprite.play("release")
+		PlayerState.RELEASE: 
+			# check if it hasn't played yet
+			if is_release_played == false:
+				# if not then play
+				attack_sprite.play("release")
+				is_release_played = true
+				release_buffer_timer.start()
+			# check if buffer done
+			print(release_buffer_timer.time_left)
+			if release_buffer_timer.time_left == 0:
+				release_buffer_timer.stop()
+				print("release animation done")
+				is_release_played = false
+				current_state = PlayerState.IDLE
+
+
+				
+			# Wait for the animation to finish
 
 func update_states() -> void:
 	match current_state:
@@ -138,11 +163,16 @@ func update_states() -> void:
 				current_state = PlayerState.WALK
 		
 		PlayerState.CAST when cast_stage == CastStage.RELEASE:
-			current_state = PlayerState.RELEASE
-		PlayerState.RELEASE:
-			cast_expire_timer.stop()	
+			release_buffer_timer.start()
 			summon_fireball()
-			current_state = PlayerState.IDLE
+			current_state = PlayerState.RELEASE
+			
+		PlayerState.RELEASE:
+			cast_expire_timer.stop()
+			
+			
+			
+				
 				
 func update_attack_states() -> void:
 	if current_state == PlayerState.CAST:
@@ -177,7 +207,11 @@ func _on_cast_expire_timeout():
 	speed_input.enable(false)
 	
 	cast_stage = CastStage.STOP
-	current_state = PlayerState.IDLE
+	if not is_on_floor() and velocity.y > 0:
+		print("me falling")
+		current_state = PlayerState.DOWN
+	else:
+		current_state = PlayerState.IDLE
 	
 func _on_angle_submitted(value: String) -> void:
 	angle_input.enable(false)
@@ -200,7 +234,7 @@ func _on_speed_submitted(value: String) -> void:
 	cast_stage = CastStage.RELEASE
 	# refresh timer
 	cast_expire_timer.start()
-
+	
 func summon_fireball():
 	var fireball_scene = preload("res://Scenes/fireball.tscn")
 	var fireball = fireball_scene.instantiate()
