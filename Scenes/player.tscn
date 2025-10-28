@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dc3v1e3p1aux8"]
+[gd_scene load_steps=42 format=3 uid="uid://dc3v1e3p1aux8"]
 
 [ext_resource type="Texture2D" uid="uid://bnna6na4ag3ag" path="res://Assets/Player/Falling/Falling1.png" id="1_2ijsl"]
 [ext_resource type="Script" uid="uid://dfp0i6kt1v81j" path="res://Scripts/Player/player.gd" id="1_11gg7"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://bj18vrvrvntbd" path="res://Assets/Player/AttackRelease/AttackWood4.png" id="34_nmr2m"]
 [ext_resource type="Texture2D" uid="uid://cl28dmc1mbsk5" path="res://Assets/Player/AttackRelease/AttackWood5.png" id="35_ax3m3"]
 [ext_resource type="Texture2D" uid="uid://cp2ri15tq724s" path="res://Assets/Player/AttackRelease/AttackWood6.png" id="36_3vlem"]
+[ext_resource type="PackedScene" uid="uid://cg4rai3k6g8rg" path="res://Scenes/UI/input_fields.tscn" id="38_qpa8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu2lt"]
 animations = [{
@@ -192,7 +193,7 @@ script = ExtResource("1_11gg7")
 [node name="MovementAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_pu2lt")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="."]
@@ -222,3 +223,19 @@ one_shot = true
 [node name="ReleaseBufferTImer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="FireballInputs" type="Node2D" parent="."]
+
+[node name="SpeedInput" parent="FireballInputs" node_paths=PackedStringArray("player") instance=ExtResource("38_qpa8y")]
+z_index = 30
+position = Vector2(0, 2)
+scale = Vector2(0.3, 0.3)
+player = NodePath("../..")
+label_text = "Speed"
+
+[node name="AngleInput" parent="FireballInputs" node_paths=PackedStringArray("player") instance=ExtResource("38_qpa8y")]
+z_index = 30
+position = Vector2(0, 2)
+scale = Vector2(0.3, 0.3)
+player = NodePath("../..")
+label_text = "Angle"

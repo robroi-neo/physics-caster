@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtnal5uhdujyp"]
+
+[ext_resource type="Texture2D" uid="uid://nr6kcjm8m512" path="res://Assets/Enemies/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="1_h5js2"]
+[ext_resource type="Script" uid="uid://db5qfxtqhjmaj" path="res://Scripts/mob.gd" id="1_u8nqw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h5js2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8nqw"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b44se"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypr7k"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frlhd"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqy1"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o80aq"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eh6w"]
+atlas = ExtResource("1_h5js2")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcfvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8nqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b44se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypr7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frlhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o80aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eh6w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5js2"]
+
+[node name="mob" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_h5js2")
+center_of_mass_mode = 1
+script = ExtResource("1_u8nqw")
+
+[node name="MushroomAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -33)
+sprite_frames = SubResource("SpriteFrames_gcfvf")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9819327
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_h5js2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -11)
+rect = Rect2(-10, -20, 20, 30)

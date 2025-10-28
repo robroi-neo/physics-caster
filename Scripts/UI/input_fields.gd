@@ -16,10 +16,10 @@ func _ready() -> void:
 	print("assigned to player:", player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# follow player
 	if player:
-		global_position = player.global_position + Vector2(-25, -65)
+		global_position = player.global_position + Vector2(-25, -80)
 	else:
 		enable(false)
 

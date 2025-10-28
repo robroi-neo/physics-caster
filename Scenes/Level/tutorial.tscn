@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://b2lt86titxv5r"]
+[gd_scene load_steps=8 format=4 uid="uid://b2lt86titxv5r"]
 
 [ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Tilesets/MagicCliffsGodot/tileset.png" id="1_70v56"]
 [ext_resource type="PackedScene" uid="uid://dc3v1e3p1aux8" path="res://Scenes/player.tscn" id="2_pxkli"]
-[ext_resource type="PackedScene" uid="uid://cg4rai3k6g8rg" path="res://Scenes/UI/input_fields.tscn" id="3_o52a7"]
 [ext_resource type="PackedScene" uid="uid://ujafm8b66hik" path="res://Scenes/World/parallax_background.tscn" id="4_0fgqj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70v56"]
 texture = ExtResource("1_70v56")
 0:0/0 = 0
 0:1/0 = 0
@@ -318,9 +317,9 @@ texture = ExtResource("1_70v56")
 
 [sub_resource type="TileSet" id="TileSet_3dryh"]
 physics_layer_0/collision_layer = 5
-sources/0 = SubResource("TileSetAtlasSource_wrm1d")
+sources/0 = SubResource("TileSetAtlasSource_70v56")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxkli"]
 texture = ExtResource("1_70v56")
 0:0/0 = 0
 0:1/0 = 0
@@ -962,7 +961,7 @@ texture = ExtResource("1_70v56")
 
 [sub_resource type="TileSet" id="TileSet_1l0tm"]
 physics_layer_0/collision_layer = 5
-sources/0 = SubResource("TileSetAtlasSource_i6g32")
+sources/0 = SubResource("TileSetAtlasSource_pxkli")
 
 [node name="Arena" type="Node2D"]
 
@@ -999,16 +998,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 rotation_smoothing_enabled = true
-
-[node name="SpeedInput" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_o52a7")]
-scale = Vector2(0.5, 0.5)
-player = NodePath("../Player")
-label_text = "Speed"
-
-[node name="AngleInput" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_o52a7")]
-scale = Vector2(0.5, 0.5)
-player = NodePath("../Player")
-label_text = "Angle"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_0fgqj")]
 z_index = -5

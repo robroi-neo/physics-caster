@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 350
+@export var SPEED: int = 250
 @export var ACCELERATION: int = 15
 @export var JUMP_VELOCITY: float = -SPEED * 1.5
 @export var GRAVITY: float = SPEED * 5
@@ -14,8 +14,8 @@ extends CharacterBody2D
 @onready var cast_expire_timer = $CastExpireTimer
 @onready var release_buffer_timer = $ReleaseBufferTImer
 
-@onready var angle_input = $"../AngleInput"
-@onready var speed_input = $"../SpeedInput"
+@onready var angle_input = $FireballInputs/AngleInput
+@onready var speed_input = $FireballInputs/SpeedInput
 
 
 enum PlayerState { IDLE, WALK, JUMP, DOWN, CAST, RELEASE}
@@ -164,11 +164,7 @@ func update_states() -> void:
 			
 		PlayerState.RELEASE:
 			cast_expire_timer.stop()
-			
-			
-			
-				
-				
+
 func update_attack_states() -> void:
 	if current_state == PlayerState.CAST:
 		match cast_stage:
