@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://db5qfxtqhjmaj" path="res://Scripts/mob.gd" id="1_u8nqw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h5js2"]
+bounce = 1.0
+absorbent = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8nqw"]
 atlas = ExtResource("1_h5js2")
