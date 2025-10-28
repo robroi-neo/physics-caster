@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqanpsoo6txmg"]
+[gd_scene load_steps=5 format=3 uid="uid://dercli3mnjbb7"]
 
 [ext_resource type="Texture2D" uid="uid://ckq16f1wlb5xx" path="res://Assets/Tilesets/MagicCliffsGodot/sky.png" id="1_8e7ct"]
 [ext_resource type="Texture2D" uid="uid://bubiokecv02fh" path="res://Assets/Tilesets/MagicCliffsGodot/clouds.png" id="2_v0q38"]

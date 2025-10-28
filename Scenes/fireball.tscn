@@ -267,4 +267,9 @@ sprite_frames = SubResource("SpriteFrames_xmwwj")
 animation = &"effect_1"
 frame_progress = 0.33567634
 
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

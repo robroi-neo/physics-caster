@@ -172,6 +172,10 @@ func update_states() -> void:
 func update_attack_states() -> void:
 	if current_state == PlayerState.CAST:
 		match cast_stage:
+			CastStage.STOP:
+				angle_input.enable(false)
+				speed_input.enable(false)
+				current_state = PlayerState.IDLE
 			CastStage.START:
 				cast_expire_timer.start()
 				angle_input.enable(true)
@@ -179,18 +183,16 @@ func update_attack_states() -> void:
 				print("Started casting... waiting for angle input")
 			CastStage.ANGLE_INPUT:
 				# print(cast_expire_timer.time_left)
+				# input details is handled by _on_angle_submitted()
 				if cast_expire_timer.time_left <= 0:
 					_on_cast_expire_timeout()
 					return
-
-				# input details is handled by _on_angle_submitted()
 			CastStage.SPEED_INPUT:
 				# print(cast_expire_timer.time_left)
+				# change of cast_stage is handled by _on_speed_submitted()
 				if cast_expire_timer.time_left <= 0:
 					_on_cast_expire_timeout()
 					return
-				
-				# change of cast_stage is handled by _on_speed_submitted()
 			CastStage.RELEASE:
 				# exit cast loop
 				cast_stage = CastStage.STOP
@@ -209,6 +211,10 @@ func _on_cast_expire_timeout():
 		current_state = PlayerState.IDLE
 	
 func _on_angle_submitted(value: String) -> void:
+	if value == "":
+		cast_stage = CastStage.STOP
+		return print("invalid value")
+	
 	angle_input.enable(false)
 	speed_input.enable(true)
 	
@@ -221,6 +227,10 @@ func _on_angle_submitted(value: String) -> void:
 	print("... waiting for speed input")
 	
 func _on_speed_submitted(value: String) -> void:
+	if value == "":
+		cast_stage = CastStage.STOP
+		return print("invalid value")
+	
 	speed_input.enable(false)
 	
 	fireball_speed = float(value)

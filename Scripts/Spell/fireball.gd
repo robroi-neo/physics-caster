@@ -5,9 +5,11 @@ extends RigidBody2D
 @export var gravity: float = 1600.0
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var disappear_timer = $DisappearTimer
 
 # You’ll set this from the player script
 var facing_left: bool = false
+var start_timer: bool = false
 
 func _ready():
 	# speed multiplier cuz gamay kaayo normally
@@ -36,6 +38,15 @@ func _integrate_forces(state):
 		pass
 		
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("ground"):
-		queue_free()
+	if !start_timer && body.is_in_group("ground"):
+		disappear_timer.start()
+		start_timer = true
+		print("timer started")
+			
+
+func _on_disappear_timer_timeout() -> void:
+	disappear_timer.stop()	
+	start_timer = false
+	queue_free()
+	print("timer end")
 	pass # Replace with function body.
