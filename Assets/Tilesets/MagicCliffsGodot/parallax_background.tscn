@@ -18,7 +18,7 @@ texture = ExtResource("1_8e7ct")
 stretch_mode = 1
 
 [node name="ParallaxLayerClouds" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.3, 0)
+motion_scale = Vector2(1, 0)
 motion_mirroring = Vector2(1088, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxLayerClouds"]
