@@ -252,7 +252,7 @@ animations = [{
 "speed": 60.0
 }]
 
-[node name="Fireball" type="RigidBody2D"]
+[node name="Fireball" type="RigidBody2D" groups=["fire_ball"]]
 z_index = 30
 contact_monitor = true
 max_contacts_reported = 1

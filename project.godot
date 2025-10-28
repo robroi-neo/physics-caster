@@ -24,6 +24,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 ground=""
+fire_ball="used to detect if fireball colides with target"
 
 [input]
 

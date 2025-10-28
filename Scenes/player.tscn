@@ -197,6 +197,7 @@ animation = &"run"
 autoplay = "idle"
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_8eeqe")
 animation = &"release"

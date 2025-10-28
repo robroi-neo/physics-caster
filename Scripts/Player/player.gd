@@ -132,7 +132,7 @@ func update_animation() -> void:
 			# check if buffer done
 			if release_buffer_timer.time_left == 0:
 				release_buffer_timer.stop()
-				print("release animation done")
+				# print("release animation done")
 				is_release_played = false
 				current_state = PlayerState.IDLE	
 
@@ -176,7 +176,6 @@ func update_attack_states() -> void:
 				cast_expire_timer.start()
 				angle_input.enable(true)
 				cast_stage = CastStage.ANGLE_INPUT  # move to next stage
-				print("Started casting... waiting for angle input")
 			CastStage.ANGLE_INPUT:
 				# print(cast_expire_timer.time_left)
 				# input details is handled by _on_angle_submitted()
@@ -209,7 +208,7 @@ func _on_cast_expire_timeout():
 func _on_angle_submitted(value: String) -> void:
 	if value == "":
 		cast_stage = CastStage.STOP
-		return print("invalid value")
+		return print("invalid angle value")
 	
 	angle_input.enable(false)
 	speed_input.enable(true)
@@ -220,12 +219,11 @@ func _on_angle_submitted(value: String) -> void:
 	cast_stage = CastStage.SPEED_INPUT
 	# refresh timer
 	cast_expire_timer.start()
-	print("... waiting for speed input")
 	
 func _on_speed_submitted(value: String) -> void:
 	if value == "":
 		cast_stage = CastStage.STOP
-		return print("invalid value")
+		return print("invalid speed value")
 	
 	speed_input.enable(false)
 	

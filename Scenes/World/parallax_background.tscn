@@ -633,7 +633,9 @@ tile_set = SubResource("TileSet_118sg")
 
 [node name="Clouds" type="Parallax2D" parent="MainBackground"]
 scroll_scale = Vector2(0.3, 0)
+scroll_offset = Vector2(1, 0)
 repeat_size = Vector2(1080, 0)
+autoscroll = Vector2(5, 0)
 repeat_times = 2
 
 [node name="TextureRect" type="TextureRect" parent="MainBackground/Clouds"]
