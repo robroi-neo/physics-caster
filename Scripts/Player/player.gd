@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 400
+@export var SPEED: int = 350
 @export var ACCELERATION: int = 15
 @export var JUMP_VELOCITY: float = -SPEED * 1.5
 @export var GRAVITY: float = SPEED * 5
