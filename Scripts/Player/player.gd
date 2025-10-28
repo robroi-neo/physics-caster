@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: int = 400
 @export var ACCELERATION: int = 15
-@export var JUMP_VELOCITY: float = -SPEED * 1.8
+@export var JUMP_VELOCITY: float = -SPEED * 1.5
 @export var GRAVITY: float = SPEED * 5
 @export var DOWN_GRAVITY_FACTOR: float = 1.5
 
@@ -124,22 +124,17 @@ func update_animation() -> void:
 		PlayerState.CAST: attack_sprite.play("charge")
 		PlayerState.RELEASE: 
 			# check if it hasn't played yet
-			if is_release_played == false:
+			if !is_release_played:
 				# if not then play
 				attack_sprite.play("release")
 				is_release_played = true
 				release_buffer_timer.start()
 			# check if buffer done
-			print(release_buffer_timer.time_left)
 			if release_buffer_timer.time_left == 0:
 				release_buffer_timer.stop()
 				print("release animation done")
 				is_release_played = false
-				current_state = PlayerState.IDLE
-
-
-				
-			# Wait for the animation to finish
+				current_state = PlayerState.IDLE	
 
 func update_states() -> void:
 	match current_state:
