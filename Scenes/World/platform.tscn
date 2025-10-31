@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://by8unatlx4sxj" path="res://Scripts/platform.gd" id="1_n5262"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh8bj"]
-size = Vector2(46.42858, 10.000004)
+size = Vector2(46.42858, 28.571444)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5262"]
 texture = ExtResource("1_1rc8e")
@@ -477,7 +477,7 @@ texture = ExtResource("1_1rc8e")
 sources/0 = SubResource("TileSetAtlasSource_n5262")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mlqre"]
-size = Vector2(47, 16)
+size = Vector2(47, 25.142857)
 
 [node name="Platform" type="StaticBody2D"]
 script = ExtResource("1_n5262")
@@ -486,8 +486,8 @@ script = ExtResource("1_n5262")
 scale = Vector2(1.4, 1.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(0.7142855, -6.428571)
-scale = Vector2(0.9999995, 0.9999995)
+position = Vector2(0.7142854, 2.857143)
+scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_sh8bj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -495,8 +495,8 @@ scale = Vector2(1.4, 1.4)
 tile_map_data = PackedByteArray("AAD+////AAAlAAMAAAD+/wAAAAAlAAQAAAD+/wEAAAAlAAUAAAD/////AAAmAAMAAAD//wAAAAAmAAQAAAD//wEAAAAmAAUAAAAAAP//AAAnAAMAAAAAAAAAAAAnAAQAAAAAAAEAAAAnAAUAAAABAP//AAAoAAMAAAABAAAAAAAoAAQAAAABAAEAAAAoAAUAAAA=")
 tile_set = SubResource("TileSet_mrs20")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["platform"]]
+position = Vector2(1, 6.3999996)
 scale = Vector2(1.4, 1.4)
 shape = SubResource("RectangleShape2D_mlqre")
 one_way_collision = true

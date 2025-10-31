@@ -14,7 +14,7 @@ var start_timer: bool = false
 func _ready():
 	# speed multiplier cuz gamay kaayo normally
 	speed = speed * 10
-	
+	 
 	var angle_rad = deg_to_rad(angle_deg)
 	# Flip direction if facing left
 	if facing_left:
@@ -38,7 +38,7 @@ func _integrate_forces(state):
 		pass
 		
 func _on_body_entered(body: Node) -> void:
-	if !start_timer && body.is_in_group("ground"):
+	if !start_timer && (body.is_in_group("ground") || body.is_in_group("platform")):
 		disappear_timer.start()
 		start_timer = true
 		print("timer started")

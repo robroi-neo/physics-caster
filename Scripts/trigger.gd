@@ -3,8 +3,6 @@ extends AnimatableBody2D
 @onready var fire_animation = $FireAnimation
 
 @export var is_triggered: bool = false
-@export var action: String
-
 signal activated(action: String)
 
 
@@ -25,6 +23,5 @@ func _on_hit_area_body_entered(body: Node2D) -> void:
 			fire_animation.play()
 			
 			# emit signal
-			emit_signal("activated", action)
-			print("trigger sent action: ", action)
+			emit_signal("activated")
 	

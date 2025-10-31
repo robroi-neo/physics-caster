@@ -628,9 +628,8 @@ size = Vector2(8.166666, 9)
 size = Vector2(14.5, 48)
 
 [node name="Trigger" type="AnimatableBody2D"]
+collision_layer = 2
 script = ExtResource("1_v4dlw")
-is_triggered = null
-action = null
 
 [node name="Base" type="TileMapLayer" parent="."]
 z_index = 5

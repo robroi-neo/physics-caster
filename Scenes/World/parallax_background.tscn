@@ -632,7 +632,7 @@ tile_map_data = PackedByteArray("AAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAI
 tile_set = SubResource("TileSet_118sg")
 
 [node name="Clouds" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.3, 0)
+scroll_scale = Vector2(0.2, 0)
 scroll_offset = Vector2(1, 0)
 repeat_size = Vector2(1080, 0)
 autoscroll = Vector2(5, 0)
@@ -648,7 +648,7 @@ tile_map_data = PackedByteArray("AAAAABMAAAAAAAUAAAAAABQAAAAAAAYAAAAAABUAAAAAAAc
 tile_set = SubResource("TileSet_wx3hk")
 
 [node name="Sea" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.4, 0)
+scroll_scale = Vector2(0.3, 0)
 repeat_size = Vector2(1080, 0)
 repeat_times = 3
 

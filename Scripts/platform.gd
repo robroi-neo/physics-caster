@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @export var target_y: float
 @export var float_speed: float = 100.0
-@export_enum("move", "move_up_down", "vanish", "raise") var action = "move"
+@export_enum("move_up", "move_up_down", "vanish") var action = "move_up"
 var moving = false
 
 var previous_position: Vector2
@@ -22,7 +22,7 @@ func _process(delta):
 		if body.is_in_group("player"):
 			body.position += move_delta
 
-func activate(action):
+func activate():
 	print("target received action: ", action)
 	match action:
 		"move_up":
@@ -30,8 +30,6 @@ func activate(action):
 		"move_up_down":
 			move_up_down()
 		"vanish":
-			pass
-		"raise":
 			pass
 
 func move_platform():
@@ -43,10 +41,10 @@ func move_up_down():
 	print(name, "moving up and down")
 	print(target_y)
 	var start_y = position.y
-	var wait_time = 1.0           # seconds to stay up
+	var wait_time = 1.0
 
 	var tween = create_tween()
-	tween.set_loops()  # ♾️ makes it repeat forever
+	tween.set_loops()
 
 	tween.tween_property(self, "position:y", target_y, 1.0)\
 		.set_trans(Tween.TRANS_SINE)\
@@ -59,6 +57,3 @@ func move_up_down():
 		.set_ease(Tween.EASE_IN_OUT)
 
 	tween.tween_interval(wait_time)
-
-
-	
