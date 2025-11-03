@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c2k6fren5u18h"]
+[gd_scene load_steps=20 format=4 uid="uid://c2k6fren5u18h"]
 
 [ext_resource type="PackedScene" uid="uid://dc3v1e3p1aux8" path="res://Scenes/player.tscn" id="1_06ioy"]
 [ext_resource type="Script" uid="uid://dq706wtjrvwtg" path="res://Scripts/Level/level_1.gd" id="1_q8n36"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnal5uhdujyp" path="res://Scenes/mob.tscn" id="5_x701m"]
 [ext_resource type="PackedScene" uid="uid://ds4hwr017s4we" path="res://Scenes/World/platform.tscn" id="6_7i4w6"]
 [ext_resource type="PackedScene" uid="uid://cfarrv2hd77h8" path="res://Scenes/door.tscn" id="9_43gce"]
+[ext_resource type="PackedScene" uid="uid://c760aqg5txl52" path="res://Scenes/World/pause.tscn" id="10_6rsi7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_362x8"]
 texture = ExtResource("4_q8n36")
@@ -3298,7 +3299,7 @@ position = Vector2(0, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_06ioy")]
 z_index = 15
-position = Vector2(116, 442)
+position = Vector2(2165, 548)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -3391,5 +3392,13 @@ tile_set = SubResource("TileSet_43gce")
 collision_enabled = false
 
 [node name="Door" parent="." instance=ExtResource("9_43gce")]
+z_index = 30
 position = Vector2(3651.9995, 495.99997)
 scale = Vector2(1.7, 1.7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("10_6rsi7")]
+visible = false
+z_index = 30

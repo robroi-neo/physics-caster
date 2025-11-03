@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c760aqg5txl52"]
+
+[ext_resource type="Script" uid="uid://c8mhhuragsfy2" path="res://Scripts/UI/pause.gd" id="1_c3d2x"]
+[ext_resource type="Shader" uid="uid://sa0ykovi022f" path="res://Scenes/World/pause.gdshader" id="1_ncq3o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3d2x"]
+shader = ExtResource("1_ncq3o")
+shader_parameter/lod = 0.800000038
+
+[node name="Pause" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_c3d2x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_c3d2x")
+offset_right = 1281.0
+offset_bottom = 717.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+show_behind_parent = true
+z_index = 1
+offset_left = 491.9082
+offset_top = 300.5
+offset_right = 822.0
+offset_bottom = 404.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume
+"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

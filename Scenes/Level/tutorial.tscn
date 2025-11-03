@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://b2lt86titxv5r"]
+[gd_scene load_steps=9 format=4 uid="uid://b2lt86titxv5r"]
 
 [ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Tilesets/MagicCliffsGodot/tileset.png" id="1_70v56"]
 [ext_resource type="PackedScene" uid="uid://dc3v1e3p1aux8" path="res://Scenes/player.tscn" id="2_pxkli"]
 [ext_resource type="PackedScene" uid="uid://ujafm8b66hik" path="res://Scenes/World/parallax_background.tscn" id="4_0fgqj"]
+[ext_resource type="PackedScene" uid="uid://c760aqg5txl52" path="res://Scenes/World/pause.tscn" id="4_70v56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70v56"]
 texture = ExtResource("1_70v56")
@@ -1001,3 +1002,8 @@ rotation_smoothing_enabled = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_0fgqj")]
 z_index = -5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_70v56")]
+visible = false
