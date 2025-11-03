@@ -3298,7 +3298,7 @@ position = Vector2(0, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_06ioy")]
 z_index = 15
-position = Vector2(3480, 571)
+position = Vector2(116, 442)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -3378,6 +3378,7 @@ target_y = 450.0
 
 [node name="Platform_2" parent="Triggers_Platform" instance=ExtResource("6_7i4w6")]
 position = Vector2(1513, 383)
+target_y = 315.0
 action = "move_up_down"
 
 [node name="Platform_Bridge" type="TileMapLayer" parent="Triggers_Platform" groups=["ground"]]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Physics-Caster(restart)"
-run/main_scene="uid://c2k6fren5u18h"
+run/main_scene="uid://bprh14cictjf1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
