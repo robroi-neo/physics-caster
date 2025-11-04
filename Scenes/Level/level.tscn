@@ -3334,11 +3334,11 @@ position = Vector2(1198, 440)
 
 [node name="HIT2" type="Label" parent="Texts"]
 z_index = 30
-offset_left = 2937.0
-offset_top = 534.0
-offset_right = 3061.0
-offset_bottom = 557.0
-text = "// TO DO BY ROBROI HAHAH I AM LAZY RN"
+offset_left = 3587.0
+offset_top = 429.0
+offset_right = 3727.0
+offset_bottom = 452.0
+text = "Press \"F\" to enter"
 
 [node name="CAST" type="Label" parent="Texts"]
 z_index = 30
@@ -3401,10 +3401,10 @@ z_index = 10
 position = Vector2(3651.9995, 495.99997)
 scale = Vector2(1.7, 1.7)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("10_6rsi7")]
+[node name="Pause" parent="PauseLayer" instance=ExtResource("10_6rsi7")]
 visible = false
 z_index = 30
 
