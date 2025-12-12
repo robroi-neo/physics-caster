@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dc3v1e3p1aux8"]
+[gd_scene load_steps=44 format=3 uid="uid://dc3v1e3p1aux8"]
 
 [ext_resource type="Texture2D" uid="uid://bnna6na4ag3ag" path="res://Assets/Player/Falling/Falling1.png" id="1_2ijsl"]
 [ext_resource type="Script" uid="uid://dfp0i6kt1v81j" path="res://Scripts/Player/player.gd" id="1_11gg7"]
@@ -192,16 +192,23 @@ animations = [{
 radius = 4.0
 height = 14.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qpa8y"]
+polygon = PackedVector2Array(0, 0, -3, 0, -4, -2, 4, -2, 3, 0, 2, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpa8y"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_11gg7")
 
 [node name="MovementAnimation" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_pu2lt")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_8eeqe")
 animation = &"charge"
@@ -246,3 +253,13 @@ position = Vector2(0, 2)
 scale = Vector2(0.3, 0.3)
 player = NodePath("../..")
 label_text = "Angle"
+
+[node name="Shadow" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_qpa8y")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_qpa8y")

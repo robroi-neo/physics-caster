@@ -17,8 +17,9 @@ extends CharacterBody2D
 @onready var angle_input = $FireballInputs/AngleInput
 @onready var speed_input = $FireballInputs/SpeedInput
 
+@onready var interact_area = $InteractArea
 
-enum PlayerState { IDLE, WALK, JUMP, DOWN, CAST, RELEASE}
+enum PlayerState { IDLE, WALK, JUMP, DOWN, CAST, RELEASE, INTERACT}
 var current_state: PlayerState = PlayerState.IDLE
 
 enum CastStage { STOP, START, ANGLE_INPUT, SPEED_INPUT, RELEASE}
@@ -30,15 +31,18 @@ var facing_left: bool = false
 # global fireball values
 var fireball_angle: float 
 var fireball_speed: float
-
 var is_release_played: bool = false
+
+var current_interactable: Node = null
 
 func _ready():
 	cast_expire_timer.timeout.connect(_on_cast_expire_timeout)
 	angle_input.input_submitted.connect(_on_angle_submitted)
 	speed_input.input_submitted.connect(_on_speed_submitted)
-
-
+	
+	interact_area.body_entered.connect(_on_body_entered)
+	interact_area.body_exited.connect(_on_body_exit)
+	
 func _physics_process(delta: float) -> void:
 	handle_input()
 	update_movement(delta)
@@ -48,6 +52,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() 
 
 func handle_input() -> void:
+	if Input.is_action_just_pressed("interact"):
+		if current_interactable != null:
+			current_state = PlayerState.INTERACT
+			current_interactable.interact(self)
+		# handle interact inputs somewhere
+		return
+	
 	if Input.is_action_just_pressed("attack")  and current_state not in [PlayerState.RELEASE, PlayerState.JUMP]:
 		if current_state == PlayerState.CAST:
 			# cancel cast
@@ -101,8 +112,7 @@ func update_movement(delta):
 	if current_state == PlayerState.CAST:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 		return  # prevent other movement updates
-
-		
+	
 func update_animation() -> void:
 	if current_state == PlayerState.CAST || current_state == PlayerState.RELEASE:
 		movement_sprite.hide()
@@ -244,3 +254,15 @@ func summon_fireball():
 	
 	fireball.facing_left = facing_left
 	get_parent().add_child(fireball)
+
+func _on_body_entered(body):
+	if body.is_in_group("npc"):
+		current_interactable = body
+		print("Interactable NPC nearby!")
+		
+
+func _on_body_exit(body):
+	if body == current_interactable:
+		current_interactable = null
+
+	

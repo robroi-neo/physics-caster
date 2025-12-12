@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @export var speed: float = 500.0
 @export var angle_deg: float = 0.0
-@export var gravity: float = 1600.0
+@export var gravity: float = 200.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var disappear_timer = $DisappearTimer
@@ -13,7 +13,7 @@ var start_timer: bool = false
 
 func _ready():
 	# speed multiplier cuz gamay kaayo normally
-	speed = speed * 10
+	speed *= 5
 	 
 	var angle_rad = deg_to_rad(angle_deg)
 	# Flip direction if facing left

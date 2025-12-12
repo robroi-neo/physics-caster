@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bv430rwxughgk"]
+[gd_scene load_steps=31 format=3 uid="uid://bv430rwxughgk"]
 
 [ext_resource type="Script" uid="uid://dpot32t820wg8" path="res://Scripts/trigger.gd" id="1_v4dlw"]
 [ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Tilesets/MagicCliffsGodot/tileset.png" id="1_vcq5i"]
@@ -627,6 +627,15 @@ size = Vector2(8.166666, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4dlw"]
 size = Vector2(14.5, 48)
 
+[sub_resource type="Gradient" id="Gradient_3ebbj"]
+offsets = PackedFloat32Array(0, 0.34, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.04666668, 0.04666668, 0.04666668, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plqo5"]
+gradient = SubResource("Gradient_3ebbj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Trigger" type="AnimatableBody2D"]
 collision_layer = 2
 script = ExtResource("1_v4dlw")
@@ -656,5 +665,14 @@ shape = SubResource("RectangleShape2D_ueehy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, -9)
 shape = SubResource("RectangleShape2D_v4dlw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1, -61)
+color = Color(0.8028823, 0.31748927, 0.24726114, 1)
+energy = 1.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_plqo5")
+texture_scale = 10.7
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

@@ -616,9 +616,10 @@ sources/0 = SubResource("TileSetAtlasSource_pijyl")
 [node name="ParallaxBackground" type="Node2D"]
 
 [node name="MainBackground" type="Node2D" parent="."]
+modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
 
 [node name="Sky" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.9, 0)
+scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(1080, 0)
 repeat_times = 3
 
@@ -632,8 +633,8 @@ tile_map_data = PackedByteArray("AAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAI
 tile_set = SubResource("TileSet_118sg")
 
 [node name="Clouds" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.2, 0)
-scroll_offset = Vector2(1, 0)
+scroll_scale = Vector2(0.3, 0)
+scroll_offset = Vector2(0.5, 0)
 repeat_size = Vector2(1080, 0)
 autoscroll = Vector2(5, 0)
 repeat_times = 2
@@ -648,8 +649,9 @@ tile_map_data = PackedByteArray("AAAAABMAAAAAAAUAAAAAABQAAAAAAAYAAAAAABUAAAAAAAc
 tile_set = SubResource("TileSet_wx3hk")
 
 [node name="Sea" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.3, 0)
+scroll_scale = Vector2(0.5, 0)
 repeat_size = Vector2(1080, 0)
+autoscroll = Vector2(1, 0)
 repeat_times = 3
 
 [node name="TextureRect" type="TextureRect" parent="MainBackground/Sea"]
@@ -662,8 +664,9 @@ tile_map_data = PackedByteArray("AAAAAA4AAAAAAAAAAAAAAA8AAAAAAAEAAAAAABAAAAAAAAI
 tile_set = SubResource("TileSet_u7giy")
 
 [node name="Parallax2D" type="Parallax2D" parent="MainBackground"]
-scroll_scale = Vector2(0.4, 0)
-scroll_offset = Vector2(-355, 12)
+scale = Vector2(0.82, 0.82)
+scroll_scale = Vector2(0.8, 0.9)
+scroll_offset = Vector2(-1969, 141)
 repeat_size = Vector2(2000, 0)
 
 [node name="FarGrounds" type="Sprite2D" parent="MainBackground/Parallax2D"]

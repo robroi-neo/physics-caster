@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dg8aok35etwfg"]
+[gd_scene load_steps=66 format=3 uid="uid://dg8aok35etwfg"]
 
 [ext_resource type="Script" uid="uid://cxtidlhpnn3sc" path="res://Scripts/Spell/fireball.gd" id="1_4wx51"]
 [ext_resource type="Texture2D" uid="uid://ccaayfdkfqf3n" path="res://Assets/Projectile/Fireball/Effect1/1.png" id="1_6spg6"]
@@ -252,6 +252,18 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_4wx51"]
+offsets = PackedFloat32Array(0.07333333, 0.24)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onxxh"]
+gradient = SubResource("Gradient_4wx51")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Fireball" type="RigidBody2D" groups=["fire_ball"]]
 z_index = 30
 collision_mask = 3
@@ -270,8 +282,17 @@ animation = &"effect_1"
 frame_progress = 0.33567634
 
 [node name="DisappearTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.015
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.778698, 0.5150519, 0.186899, 1)
+energy = 0.3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 5.0
+texture = SubResource("GradientTexture2D_onxxh")
+texture_scale = 4.66
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
