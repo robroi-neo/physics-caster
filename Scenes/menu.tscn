@@ -1,6 +1,6 @@
 [gd_scene load_steps=88 format=4 uid="uid://bprh14cictjf1"]
 
-[ext_resource type="Script" uid="uid://s2iith8uhwwu" path="res://Scenes/menu.gd" id="1_lvy56"]
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_lvy56"]
 [ext_resource type="Texture2D" uid="uid://kynirtw4oukc" path="res://Assets/Tilesets/MagicCliffsGodot/tileset.png" id="5_q3rjx"]
 [ext_resource type="Texture2D" uid="uid://k40hitpp6pw1" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood1.png" id="7_23t3j"]
 [ext_resource type="Texture2D" uid="uid://c5b5d7yxg2o8q" path="res://Assets/Player/AttackCharge/ChargeWood/ChargeWood2.png" id="8_8ph6h"]
